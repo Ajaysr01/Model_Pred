@@ -71,41 +71,6 @@ House_Prices_Pred-Model/
 └── README.md                # Project documentation
 ```
 
-## Installation
-
-### **Prerequisites**
-- Python 3.7 or higher
-- pip package manager
-
-### **Setup Steps**
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Ajaysr01/House_Prices_Pred-Model.git
-   cd House_Prices_Pred-Model
-   ```
-
-2. **Create virtual environment** (recommended)
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\\Scripts\\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the application**
-   ```bash
-   python app_updated.py
-   ```
-
-5. **Access the web interface**
-   Open your browser and navigate to `http://localhost:5000`
-
-## Usage
-
 ### **Web Interface**
 1. Navigate to the main page
 2. Input property features:
