@@ -1,84 +1,157 @@
-# House Price Predictor
+# House Price Prediction Model
 
-A Flask web application for predicting house prices in major Indian cities using machine learning.
+A machine learning-powered web application that predicts house prices based on various property features. This project combines data science techniques with a user-friendly web interface to provide accurate real estate price estimates.
+
+## Overview
+
+This project implements a comprehensive house price prediction system that leverages machine learning algorithms to estimate property values. The system processes various property characteristics such as location, size, amenities, and market conditions to provide accurate price predictions.
+
+**Key Objectives:**
+- Provide accurate house price predictions for buyers and sellers
+- Offer an intuitive web interface for easy interaction
+- Demonstrate end-to-end machine learning pipeline implementation
+- Enable real-time price estimation based on property features
 
 ## Features
 
-- Interactive map with city and locality selection
-- Modern responsive UI with animations
-- Real-time price predictions
-- Support for 16+ major Indian cities
-- Advanced property details input
-- Mobile-friendly design
+- **Price Prediction**: Advanced ML algorithms for accurate house price estimation
+- **Web Interface**: User-friendly HTML templates for easy interaction
+- **Data Processing**: Robust data preprocessing and feature engineering
+- **Model Persistence**: Serialized models using joblib for quick loading
+- **Responsive Design**: Mobile-friendly web interface
+- **Real-time Predictions**: Instant price estimates upon feature input
+- **Feature Engineering**: Advanced preprocessing with label encoders
 
-## Deployment on Render.com
+## Technologies Used
 
-### Prerequisites
+### **Backend & ML**
+- **Python** - Core programming language
+- **scikit-learn** - Machine learning algorithms and preprocessing
+- **pandas** - Data manipulation and analysis
+- **numpy** - Numerical computing
+- **joblib** - Model serialization and persistence
+- **Flask/Django** (inferred from app_updated.py) - Web framework
 
-Make sure you have these files in your repository:
-- `mdl.joblib` (your trained model)
-- `fixed_label_encoders.joblib` (your label encoders)
+### **Frontend**
+- **HTML5** - Web page structure and templates
+- **CSS3** - Styling and responsive design
+- **JavaScript** - Interactive frontend functionality
 
-### Steps to Deploy
+### **Development Tools**
+- **Jupyter Notebook** - Data exploration and model development
+- **Git** - Version control
 
-1. **Push to GitHub**: Make sure all files are in your GitHub repository
+## Models
 
-2. **Connect to Render**:
-   - Go to [render.com](https://render.com)
-   - Sign up/Login with your GitHub account
-   - Click "New +" → "Web Service"
-   - Connect your GitHub repository
+The project implements multiple machine learning models for house price prediction:
 
-3. **Configure Service**:
-   - **Name**: `house-price-predictor`
-   - **Environment**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app`
-   - **Instance Type**: Free tier is sufficient for testing
+### **Primary Models**
+- **Linear Regression** - Baseline model for price prediction
+- **Random Forest Regressor** - Ensemble method for improved accuracy
 
-4. **Deploy**: Click "Create Web Service"
+### **Model Features**
+- **Feature Engineering**: Advanced preprocessing with label encoders
+- **Cross-validation**: Robust model evaluation techniques
+- **Hyperparameter Tuning**: Optimized model parameters
+- **Model Persistence**: Serialized models (`mdl.joblib`) for production use
 
-### Environment Variables
+## Project Structure
 
-No additional environment variables are required for basic functionality.
+```
+House_Prices_Pred-Model/
+│
+├── templates/                 # HTML templates for web interface
+│   ├── index.html            # Main prediction interface
+│
+├── Untitled.ipynb           # Jupyter notebook for model development
+├── app_updated.py            # Main Flask/Django application
+├── mdl.joblib               # Serialized trained model
+├── fixed_label_encoders.joblib # Preprocessed label encoders
+├── requirements.txt          # Python dependencies
+└── README.md                # Project documentation
+```
 
-### File Structure
+## Installation
 
-\`\`\`
-your-repo/
-├── app.py                          # Main Flask application
-├── requirements.txt                # Python dependencies
-├── render.yaml                     # Render configuration
-├── runtime.txt                     # Python version
-├── Procfile                        # Process file for deployment
-├── templates/
-│   └── index.html                  # Frontend template
-├── mdl.joblib                      # Your ML model (add this)
-├── fixed_label_encoders.joblib     # Your encoders (add this)
-└── README.md                       # This file
-\`\`\`
+### **Prerequisites**
+- Python 3.7 or higher
+- pip package manager
 
-### Troubleshooting
+### **Setup Steps**
 
-1. **Build Fails**: Check that `requirements.txt` has all dependencies
-2. **Model Not Found**: Ensure `mdl.joblib` and `fixed_label_encoders.joblib` are in root directory
-3. **Port Issues**: The app automatically uses Render's PORT environment variable
-4. **Static Files**: All CSS/JS is inline, no static file issues
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ajaysr01/House_Prices_Pred-Model.git
+   cd House_Prices_Pred-Model
+   ```
 
-### Local Development
+2. **Create virtual environment** (recommended)
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+   ```
 
-\`\`\`bash
-# Install dependencies
-pip install -r requirements.txt
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# Run locally
-python app.py
-\`\`\`
+4. **Run the application**
+   ```bash
+   python app_updated.py
+   ```
 
-Visit `http://localhost:5000` to test locally.
+5. **Access the web interface**
+   Open your browser and navigate to `http://localhost:5000`
 
-### Support
+## Usage
 
-- Check Render logs for deployment issues
-- Ensure model files are not in `.gitignore`
-- Verify all dependencies are in `requirements.txt`
+### **Web Interface**
+1. Navigate to the main page
+2. Input property features:
+   - Location/Area
+   - Property size (sq ft)
+   - Number of bedrooms/bathrooms
+   - Property age
+   - Additional amenities
+3. Click "Predict Price"
+4. View the estimated price and confidence interval
+
+
+## API Endpoints
+
+- **GET /** - Main prediction interface
+- **POST /predict** - Submit property data for price prediction
+- **GET /results** - Display prediction results
+- **GET /api/predict** - JSON API for programmatic access
+
+## Model Performance
+ 
+- **Root Mean Square Error (RMSE)**: Rs. 4034.80
+- **R² Score**: 0.864
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### **Development Setup**
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Author
+
+**Ajaysr01**
+- GitHub: [@Ajaysr01](https://github.com/Ajaysr01)
+
+## Acknowledgments
+
+- Thanks to the open-source community for the amazing libraries
+- Dataset providers for making real estate data available
+- Contributors and testers who helped improve the model
+
+---
+
+⭐ **Star this repository if you found it helpful!**
